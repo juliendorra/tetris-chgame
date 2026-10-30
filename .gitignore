@@ -1,0 +1,7 @@
+.arduino15/
+.cache/
+.toolchains/
+.venv/
+sketchbook/
+__pycache__/
+.DS_Store
