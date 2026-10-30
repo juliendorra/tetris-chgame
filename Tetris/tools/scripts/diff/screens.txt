@@ -1,0 +1,61 @@
+label title and palettes
+wait 40
+tap SELECT
+wait 20
+tap SELECT
+tap SELECT
+tap RIGHT
+tap A
+wait 20
+tap B
+tap LEFT
+label menus
+tap START
+wait 40
+tap RIGHT
+tap LEFT
+tap A
+tap LEFT
+tap RIGHT
+wait 40
+tap A
+tap RIGHT
+tap DOWN
+tap LEFT
+wait 40
+tap A
+label movement and preview
+wait 80
+tap A
+hold LEFT
+wait 35
+release
+hold DOWN
+wait 60
+release
+tap SELECT
+tap SELECT
+tap START
+wait 40
+tap START
+label clear and compaction
+say Y0
+wait 100
+say Y1
+wait 100
+say Y8
+wait 100
+say Y9
+wait 60
+label result and records
+say Y2
+wait 110
+tap A
+tap UP
+tap RIGHT
+wait 40
+tap START
+wait 40
+label game over panel
+say Y3
+wait 30

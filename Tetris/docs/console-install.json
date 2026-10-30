@@ -1,0 +1,172 @@
+{
+  "category": "Dorra's",
+  "category_path": "GAMES/MYGAMESP",
+  "target": "GAMES/MYGAMESP/TETRIS.CHG",
+  "version": "1.1.4",
+  "chg_bytes": 78682,
+  "chg_sha256": "bd04950d24b3ff6aa4dd524eef6d15258254bbccead37fd8bc9c5317025ed288",
+  "firmware_bytes": 28444,
+  "payload_crc32": 3620753315,
+  "previous_entries": [
+    {
+      "name": "MIDNIGHT.CHG",
+      "flags": 0,
+      "title": ""
+    },
+    {
+      "name": "MYSTICBA.CHG",
+      "flags": 0,
+      "title": ""
+    },
+    {
+      "name": "ATMSOUND.CHG",
+      "flags": 0,
+      "title": ""
+    },
+    {
+      "name": "CLIMBING.CHG",
+      "flags": 0,
+      "title": ""
+    },
+    {
+      "name": "TETRIS.CHG",
+      "flags": 0,
+      "title": ""
+    }
+  ],
+  "next_entries": [
+    {
+      "name": "MIDNIGHT.CHG",
+      "flags": 0,
+      "title": ""
+    },
+    {
+      "name": "MYSTICBA.CHG",
+      "flags": 0,
+      "title": ""
+    },
+    {
+      "name": "ATMSOUND.CHG",
+      "flags": 0,
+      "title": ""
+    },
+    {
+      "name": "CLIMBING.CHG",
+      "flags": 0,
+      "title": ""
+    },
+    {
+      "name": "TETRIS.CHG",
+      "flags": 0,
+      "title": ""
+    }
+  ],
+  "installed_at": "2026-10-30T10:37:26.710157+00:00",
+  "previous_menu_records_preserved": true,
+  "previous_files_content_verified": [
+    "CHCW/BONUS.CWD",
+    "GAMES/APPS/COVER.PIC",
+    "GAMES/APPS/MENU.IDX",
+    "GAMES/APPS/SDCARDRE.CHG",
+    "GAMES/APPS/SDREAD16.CHG",
+    "GAMES/APPS/SDTOSERI.CHG",
+    "GAMES/APPS/SDUSBBRI.CHG",
+    "GAMES/APPS/STLVIEWE.CHG",
+    "GAMES/COVER.PIC",
+    "GAMES/GAME/COVER.PIC",
+    "GAMES/GAME/ETHANSCR.CHG",
+    "GAMES/GAME/MENU.IDX",
+    "GAMES/MENU.BG",
+    "GAMES/MENU.IDX",
+    "GAMES/MYGAMESP/ATMSOUND.CHG",
+    "GAMES/MYGAMESP/CLIMBING.CHG",
+    "GAMES/MYGAMESP/COVER.PIC",
+    "GAMES/MYGAMESP/MENU.IDX",
+    "GAMES/MYGAMESP/MIDNIGHT.CHG",
+    "GAMES/MYGAMESP/MYSTICBA.CHG",
+    "GAMES/SYSTEM.PIC",
+    "MODELS/BOWL.STL",
+    "MODELS/CUBE.STL",
+    "MODELS/GEAR.STL",
+    "MODELS/ICOSPH.STL",
+    "MODELS/KNOT.STL",
+    "MODELS/TORUS.STL",
+    "MYBLSAVE.DAT",
+    "PHRASES.BNK",
+    "PINBALL/CARNIVAL.PBT",
+    "PINBALL/DRAGON.PBT",
+    "PINBALL/EDITLAB.PBT",
+    "PINBALL/MIDNIGHT.PBT",
+    "PINBALL/NEON.PBT",
+    "PINBALL/ORBITRON.PBT",
+    "PINBALL/PIRAT001.PBT",
+    "PINBALL/PIRATES.PBT",
+    "PINBALL/SHUTTLE.PBT",
+    "PINBALL/SOLAR.PBT",
+    "PINBALL/STORM.PBT",
+    "System Volume Information/IndexerVolumeGuid",
+    "WORDS.DIC"
+  ],
+  "previous_files_metadata_verified": [
+    "CHCW/BONUS.CWD",
+    "CRITTERS.DAT",
+    "GAMES/APPS/COVER.PIC",
+    "GAMES/APPS/MENU.IDX",
+    "GAMES/APPS/SDCARDRE.CHG",
+    "GAMES/APPS/SDREAD16.CHG",
+    "GAMES/APPS/SDTOSERI.CHG",
+    "GAMES/APPS/SDUSBBRI.CHG",
+    "GAMES/APPS/STLVIEWE.CHG",
+    "GAMES/COVER.PIC",
+    "GAMES/GAME/COVER.PIC",
+    "GAMES/GAME/ETHANSCR.CHG",
+    "GAMES/GAME/MENU.IDX",
+    "GAMES/MENU.BG",
+    "GAMES/MENU.IDX",
+    "GAMES/MYGAMESP/ATMSOUND.CHG",
+    "GAMES/MYGAMESP/CLIMBING.CHG",
+    "GAMES/MYGAMESP/COVER.PIC",
+    "GAMES/MYGAMESP/MENU.IDX",
+    "GAMES/MYGAMESP/MIDNIGHT.CHG",
+    "GAMES/MYGAMESP/MYSTICBA.CHG",
+    "GAMES/SYSTEM.PIC",
+    "MODELS/BOWL.STL",
+    "MODELS/CUBE.STL",
+    "MODELS/GEAR.STL",
+    "MODELS/ICOSPH.STL",
+    "MODELS/KNOT.STL",
+    "MODELS/TORUS.STL",
+    "MYBLSAVE.DAT",
+    "PHRASES.BNK",
+    "PINBALL/CARNIVAL.PBT",
+    "PINBALL/DRAGON.PBT",
+    "PINBALL/EDITLAB.PBT",
+    "PINBALL/MIDNIGHT.PBT",
+    "PINBALL/NEON.PBT",
+    "PINBALL/ORBITRON.PBT",
+    "PINBALL/PIRAT001.PBT",
+    "PINBALL/PIRATES.PBT",
+    "PINBALL/SHUTTLE.PBT",
+    "PINBALL/SOLAR.PBT",
+    "PINBALL/STORM.PBT",
+    "System Volume Information/IndexerVolumeGuid",
+    "WORDS.DIC"
+  ],
+  "uncached_readback_after_remount": true,
+  "ejected_safely": true,
+  "verification_note": "Only the existing Tetris cartridge was replaced. Both menu indexes remained byte-for-byte unchanged. Other files under 8 MiB were hash-checked before/after; larger untouched files were checked for unchanged size/timestamp.",
+  "firmware_sha256": "e9830f38c6b97ef5b821a80733ee211aed54e8d0322ed39480242c1b64fa9df3",
+  "flash": {
+    "bytes": 28444,
+    "crc32": 3620753315,
+    "chunk": 256,
+    "erase_s": 0.0036049170012120157,
+    "write_s": 1.007936250000057,
+    "total_s": 1.0991765840008156,
+    "kbps": 27.55863156027817,
+    "port": "/dev/cu.usbmodem1101",
+    "app_port": "/dev/cu.usbmodem1101",
+    "device_crc_verified": true,
+    "started_at": "2026-10-30T10:37:45.940244+00:00"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "level": 9,
+  "start": [
+    39,
+    1384
+  ],
+  "end": [
+    222,
+    4422
+  ],
+  "host_seconds": 3.0322302909989958,
+  "game_fps": 60.351616611451036,
+  "perf": "PERF rnd=851 max=1892 late=0 frames=183 stk=1088",
+  "version": "1.1.2",
+  "measured_at": "2026-10-30T09:46:00.580424+00:00",
+  "debug_firmware_sha256": "58eeebf323a0e003a58d9eb127abf8e20588a98d556038885ee73e39b1321369",
+  "drop_observations": 15,
+  "mean_drop_seconds": 0.183492847266704,
+  "median_drop_seconds": 0.18356229100027122,
+  "dmg_frames_per_row": 11,
+  "expected_at_60fps": 0.18333333333333332,
+  "music": "Original DMG A-TYPE",
+  "note": "Physical CHGame Rev0; original DMG score player active; menu A/B/C/OFF checked; temporary debug firmware. Raw samples in out/device-speed.json."
+}
