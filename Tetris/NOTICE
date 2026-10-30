@@ -1,0 +1,44 @@
+TETRIS for CHGame: independently implemented single-player adaptation.
+Tetris name, game and original presentation: their respective rights holders.
+
+Gameplay reference: Nintendo's 1989 Game Boy Tetris instruction booklet:
+https://www.videogamemanual.com/gameboy/Tetris%20(USA).pdf
+Rotation, gravity, repeat and randomizer research:
+https://github.com/kaspermeerts/tetris
+The DMG title art, font, block patterns and screen maps are converted from
+the published reference atlases in that repository, revision:
+b95c66859339f5523e80213de5857eefc1c7703f
+Original graphical artwork: Nintendo, 1989, and its respective rights holders.
+Source URLs and SHA-256 hashes are in references/dmg/sources.json.
+The BSD software license does not relicense the original graphical artwork.
+No Game Boy ROM or Nintendo executable binary is bundled.
+
+Visual checks also used the DMG title capture at:
+https://images.nintendolife.com/00b6d3e81d84b/tetris-2.900x.jpg
+and NintendoComplete's recorded playthrough, title and gameplay frames:
+https://www.youtube.com/watch?v=BQwohHgrk2s
+
+Original DMG A/B/C music score data, pitch tables, wave patterns and playback
+behavior are referenced from music.asm, music_macros.asm and audio.asm in the
+pinned disassembly above. Source URLs and SHA-256 hashes: tools/music.json.
+A: traditional Korobeiniki, arranged by Hirokazu Tanaka.
+B: original composition by Hirokazu Tanaka.
+C: J. S. Bach, French Suite No. 3 in B minor, BWV 814, Menuet, arranged for
+Game Boy by Hirokazu Tanaka. Original score/arrangement rights are retained
+by their respective rights holders and are not covered by the software license.
+The original scores are interpreted as data, without Nintendo executable code.
+The native PWM output and cue mixer are derived from the ATM
+Soundtracks demo at https://github.com/juliendorra/chgame-soundtracks.
+Game sound cues are authored for this adaptation.
+The software license does not relicense the music or trademarks.
+
+ATMlib / Squawk synthesis and tracker code:
+Copyright (c) 2016 - 2026, TEAM a.r.g.
+Copyright (c) 2016 - 2018, Davey Taylor
+Copyright (c) 2016 - 2026, Joeri Gantois
+BSD 3-Clause; full terms in LICENSE.
+Pinned upstream revision: 8fdabd2fd81082bff50e8af730cae4feff2cce99
+https://github.com/T-arg/ATMlib
+
+The project uses CHGame / CHGfx. The complete CHGame, CHGame-NOTICE and
+CHGfx terms are bundled (in licenses/ in the source tree).

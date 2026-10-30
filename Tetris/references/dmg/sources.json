@@ -1,0 +1,20 @@
+{
+  "repository": "https://github.com/kaspermeerts/tetris",
+  "revision": "b95c66859339f5523e80213de5857eefc1c7703f",
+  "assets": {
+    "font.png": {
+      "url": "https://raw.githubusercontent.com/kaspermeerts/tetris/b95c66859339f5523e80213de5857eefc1c7703f/gfx/font.png",
+      "sha256": "356954ce9364fd5434d0c7dc5c25fff7e5251ede3aa4705e8cdc36ea1721461b"
+    },
+    "copyrightandtitlescreen.png": {
+      "url": "https://raw.githubusercontent.com/kaspermeerts/tetris/b95c66859339f5523e80213de5857eefc1c7703f/gfx/copyrightandtitlescreen.png",
+      "sha256": "8283d86e439f7e877b7178c048437daf59547f527f76ff9570f19cf905319da9"
+    },
+    "configandgameplay.png": {
+      "url": "https://raw.githubusercontent.com/kaspermeerts/tetris/b95c66859339f5523e80213de5857eefc1c7703f/gfx/configandgameplay.png",
+      "sha256": "26b4c12bc8c7de430c357abc429f8f5a332ee3bdb0b89a4c119679fb0524768e"
+    }
+  },
+  "video": "https://www.youtube.com/watch?v=BQwohHgrk2s",
+  "title_capture": "https://images.nintendolife.com/00b6d3e81d84b/tetris-2.900x.jpg"
+}
