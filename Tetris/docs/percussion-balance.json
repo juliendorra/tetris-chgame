@@ -1,0 +1,131 @@
+{
+  "version": "1.1.4",
+  "comparison_seconds": 8,
+  "sample_rate": 31250,
+  "percussion_gain": "1/2",
+  "other_voices_identical": true,
+  "no_clipping": true,
+  "source_sha256": "37a8625ca3c309c849ae5b815cb64328b63482274876f34050f93b8d9cc5def1",
+  "tracks": [
+    {
+      "track": "A-TYPE",
+      "parts": [
+        {
+          "part": "harmony",
+          "rms_before": 4.7111,
+          "rms_after": 4.7111,
+          "change_db": 0.0,
+          "identical_pcm": true
+        },
+        {
+          "part": "melody",
+          "rms_before": 12.4169,
+          "rms_after": 12.4169,
+          "change_db": 0.0,
+          "identical_pcm": true
+        },
+        {
+          "part": "bass",
+          "rms_before": 10.3542,
+          "rms_after": 10.3542,
+          "change_db": 0.0,
+          "identical_pcm": true
+        },
+        {
+          "part": "percussion",
+          "rms_before": 8.892,
+          "rms_after": 4.2065,
+          "change_db": -6.502,
+          "identical_pcm": false
+        },
+        {
+          "part": "full_mix",
+          "rms_before": 19.2558,
+          "rms_after": 17.5768,
+          "change_db": -0.792,
+          "identical_pcm": false
+        }
+      ]
+    },
+    {
+      "track": "B-TYPE",
+      "parts": [
+        {
+          "part": "harmony",
+          "rms_before": 5.9827,
+          "rms_after": 5.9827,
+          "change_db": 0.0,
+          "identical_pcm": true
+        },
+        {
+          "part": "melody",
+          "rms_before": 10.2742,
+          "rms_after": 10.2742,
+          "change_db": 0.0,
+          "identical_pcm": true
+        },
+        {
+          "part": "bass",
+          "rms_before": 6.9224,
+          "rms_after": 6.9224,
+          "change_db": 0.0,
+          "identical_pcm": true
+        },
+        {
+          "part": "percussion",
+          "rms_before": 12.5402,
+          "rms_after": 5.9314,
+          "change_db": -6.503,
+          "identical_pcm": false
+        },
+        {
+          "part": "full_mix",
+          "rms_before": 18.7962,
+          "rms_after": 15.2367,
+          "change_db": -1.824,
+          "identical_pcm": false
+        }
+      ]
+    },
+    {
+      "track": "C-TYPE",
+      "parts": [
+        {
+          "part": "harmony",
+          "rms_before": 7.9801,
+          "rms_after": 7.9801,
+          "change_db": 0.0,
+          "identical_pcm": true
+        },
+        {
+          "part": "melody",
+          "rms_before": 12.6763,
+          "rms_after": 12.6763,
+          "change_db": 0.0,
+          "identical_pcm": true
+        },
+        {
+          "part": "bass",
+          "rms_before": 0.0,
+          "rms_after": 0.0,
+          "change_db": null,
+          "identical_pcm": true
+        },
+        {
+          "part": "percussion",
+          "rms_before": 0.0,
+          "rms_after": 0.0,
+          "change_db": null,
+          "identical_pcm": true
+        },
+        {
+          "part": "full_mix",
+          "rms_before": 16.6281,
+          "rms_after": 16.6281,
+          "change_db": 0.0,
+          "identical_pcm": true
+        }
+      ]
+    }
+  ]
+}
