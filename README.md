@@ -7,6 +7,25 @@ marathon and B-Type 25-line challenge follow the original handheld game.
 
 ![Tetris running in the CHGame simulator](Tetris/docs/gameplay.gif)
 
+## Download
+
+[Release 1.1.4](https://github.com/juliendorra/tetris-chgame/releases/tag/v1.1.4)
+contains the tested CHGame Rev0 builds:
+
+| File | Use |
+| --- | --- |
+| [Tetris-rev0.chgame](https://github.com/juliendorra/tetris-chgame/releases/latest/download/Tetris-rev0.chgame) | Shareable cartridge with artwork, metadata and license notices |
+| [Tetris-rev0.chg](https://github.com/juliendorra/tetris-chgame/releases/latest/download/Tetris-rev0.chg) | SD game-menu build with artwork and metadata |
+| [Tetris-rev0.bin](https://github.com/juliendorra/tetris-chgame/releases/latest/download/Tetris-rev0.bin) | Raw firmware for USB upload |
+| [Tetris-rev0.hex](https://github.com/juliendorra/tetris-chgame/releases/latest/download/Tetris-rev0.hex) | Intel HEX application image |
+
+The release includes [SHA-256 checksums](https://github.com/juliendorra/tetris-chgame/releases/latest/download/SHA256SUMS.txt)
+and [license notices](https://github.com/juliendorra/tetris-chgame/releases/latest/download/LICENSES.txt).
+No additional SD data files are needed. With the CHGame tools installed,
+flash the cartridge using `chgame cart flash Tetris-rev0.chgame`.
+For an existing SD menu, install the `.chg` through your usual menu workflow;
+on a console using Dorra's category, its path is `GAMES/MYGAMESP/TETRIS.CHG`.
+
 ## The experiment
 
 This is an experimental project about reproducing existing software on new
