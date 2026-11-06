@@ -145,9 +145,9 @@ no longer duck the music, and their cue levels are lower. Major events apply
 only a small music reduction. See [the fidelity and output checks](Tetris/docs/audio-update.md).
 
 OFF keeps game cues, pause freezes the score, and danger tempo runs at 125%
-without restarting. `tools/make_music.py` regenerates the original music data
-and source-derived validation facts from `references/dmg/audio/`. URLs and
-source hashes are in `tools/music.json`.
+without restarting. `Tetris/tools/make_music.py` regenerates the original music data
+and source-derived validation facts from `Tetris/references/dmg/audio/`. URLs and
+source hashes are in `Tetris/tools/music.json`.
 The ATM demo itself is unchanged. Older settings migrate while retaining
 high scores and palette; the removed extension maps to original A-TYPE.
 
