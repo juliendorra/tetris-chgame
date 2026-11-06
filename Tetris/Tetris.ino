@@ -37,7 +37,7 @@ static uint32_t simulatedAt = 0;
 static void screen(view::Screen next) { scene.screen = next; screenAge = 0; }
 static void music(bool restart = true) {
     if (restart) chip::play(scene.music == 3 ? 0 : scene.music);
-    chip::setVolume(3);
+    chip::setVolume(4);
     chip::pause(scene.music == 3);
     chip::setTempo(100);
 }
@@ -234,7 +234,7 @@ static bool debugState(char command,const char *args) {
 #endif
 
 void setup() {
-    chgame.boot(); dbg::begin("TETRIS 1.1.4");
+    chgame.boot(); dbg::begin("TETRIS 1.1.6");
 #if CHGAME_DEBUG
     dbg::hook=debugState;
 #endif

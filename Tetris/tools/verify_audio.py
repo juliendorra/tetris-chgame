@@ -11,7 +11,8 @@ import numpy as np
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'out/audio';OUT.mkdir(parents=True,exist_ok=True)
 subprocess.run(['clang++','-std=c++17','-O1','-g','-fsanitize=undefined','-fno-sanitize-recover=all',
-    f'-I{ROOT}',str(ROOT/'tools/render.cpp'),str(ROOT/'Synth.cpp'),str(ROOT/'src/Songs.cpp'),'-o',str(OUT/'render')],check=True)
+    f'-I{ROOT}',f'-I{ROOT.parent/"CHGame/platform/board/arduino/CHGame/libraries/CHGame/src"}',
+    str(ROOT/'tools/render.cpp'),str(ROOT/'Synth.cpp'),str(ROOT/'src/Songs.cpp'),'-o',str(OUT/'render')],check=True)
 subprocess.run([str(OUT/'render'),str(OUT)],check=True)
 music=json.loads((ROOT/'tools/music.json').read_text())
 for name,entry in music['source'].items():
@@ -80,4 +81,11 @@ for song_index,song in enumerate(music['songs']):
         assert pcm.min()>-128 and pcm.max()<127
     print(f"PASS {song['title']}: 3 loops, all voices, original notes/rests, durations, envelopes, duties/waveforms, pitch registers and vibrato; non-clipping PCM")
 print(f'PASS: {compared:,} original DMG voice frames; pause/resume, mute, danger tempo and all nine cues')
+def pcm_file(name):
+    with wave.open(str(OUT/name)) as f:
+        return np.frombuffer(f.readframes(f.getnframes()),dtype=np.uint8).astype(float)-128
+clean=pcm_file('routine-clean.wav');controls=pcm_file('routine-cues.wav')
+relative_error=float(np.sqrt(np.mean((controls-clean)**2))/np.std(clean))
+assert relative_error<0.18,('routine controls disturb the soundtrack',relative_error)
+print(f'PASS: ten routine inputs/second retain the soundtrack; cue difference is {relative_error:.1%} of music RMS')
 (OUT/'verification.json').write_text(json.dumps({'tracks':3,'voice_frames':compared,'source_revision':music['revision'],'different_frames':0},indent=2)+'\n')

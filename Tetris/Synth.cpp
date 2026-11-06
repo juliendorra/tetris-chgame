@@ -1,5 +1,6 @@
 #include "Synth.h"
 #include "src/Songs.h"
+#include "Output.h"
 #include <string.h>
 #if defined(__riscv) && !defined(CHSIM)
 #include <Arduino.h>
@@ -19,8 +20,9 @@ struct Lane {
     uint8_t envelope=0, level=0, envelopeTimer=0, duty=0, wave=3, trigger=0;
 };
 Lane lanes[4];
+tetrisaudio::Output output;
 volatile bool ready=false, isPaused=false;
-volatile unsigned gain=3, muted=0, tempo=100;
+volatile unsigned gain=4, muted=0, tempo=100;
 uint32_t tickFraction=0, tempoFraction=0;
 volatile uint32_t tickCounter=0;
 unsigned envelopeFraction=0;
@@ -112,6 +114,7 @@ void play(unsigned track) {
         lanes[ch]=Lane{};lanes[ch].list=SONGS[track].channels[ch];
         if(lanes[ch].list)lanes[ch].at=scoreWord(lanes[ch].list);
     }
+    output.silence();
     memset(phase,0,sizeof phase);memset(seen,0,sizeof seen);noise=0x7fff;noisePhase=0;
     tickFraction=tempoFraction=tickCounter=0;envelopeFraction=0;effectMs=0;isPaused=false;
     step();ready=true;
@@ -172,13 +175,16 @@ void millisecond() {
     }
 }
 RAMFUNC(chipSample) uint8_t sample() {
-    if(!ready)return 128;
+    if(!ready)return output.silence();
     const Mix &m=controls[front];int mix=0;
     static const uint8_t widths[]={32,64,128,192};
     for(unsigned ch=0;ch<3;++ch) {
         if(ch==2 && seen[ch]!=m.trigger[ch])phase[ch]=0;
         seen[ch]=m.trigger[ch];phase[ch]+=m.inc[ch];
-        const int v=m.vol[ch];
+        // Static output balance only: retain every original envelope step,
+        // pulse duty, pitch and wave sample. Both pulse parts receive the
+        // same lift, so tunes that exchange melody and harmony still work.
+        const int v=ch<2 ? int(m.vol[ch])*3/2 : m.vol[ch];
         if(ch<2)mix+=(phase[ch]>>8)<widths[m.duty[ch]]?v:-v;
         else {
             const unsigned at=phase[ch]>>11,packed=DMG_WAVES[m.wave][at/2];
@@ -213,17 +219,21 @@ RAMFUNC(chipSample) uint8_t sample() {
         case GameOver: hz = 600 - elapsed / 2; break;
         case Menu: hz = 1300; break;
         }
-        // Duck the score and add an independently enveloped pulse cue.
+        // Routine controls should not pump the entire soundtrack. Keep
+        // their clicks short and low; only major events gently duck music.
         effectPhase += uint16_t(hz * 65536ul / SAMPLE_RATE);
-        const int v = effectMs < 12 ? effectMs : 12;
-        mix = mix * 2 / 3 + (effectPhase & 0x8000 ? v : -v);
+        const unsigned ceiling=effectId==Move ? 3 : effectId==Turn ? 4 :
+                               effectId==Menu ? 6 : effectId==Land ? 8 : 12;
+        const int v = effectMs < ceiling ? effectMs : ceiling;
+        if (effectId>=Clear && effectId<=GameOver) mix=mix*7/8;
+        mix += effectPhase & 0x8000 ? v : -v;
     }
-    mix = mix * int(gain) / 4;
     if (++scopeDivider == 8) {
         scopeDivider = 0;
-        scope[scopeIndex++ & 127] = int8_t(mix);
+        scope[scopeIndex++ & 127] = int8_t(mix * int(gain) / 4);
     }
-    return uint8_t(128 + mix); // Authored voice levels sum to less than 128.
+    if (!(m.vol[0] | m.vol[1] | m.vol[2] | m.vol[3]) && !effectMs) return output.silence();
+    return output.write(mix, gain);
 }
 Voice voice(unsigned ch) {
     if(ch>=4)return {};

@@ -9,7 +9,7 @@ marathon and B-Type 25-line challenge follow the original handheld game.
 
 ## Download
 
-[Release 1.1.4](https://github.com/juliendorra/tetris-chgame/releases/tag/v1.1.4)
+[Release 1.1.6](https://github.com/juliendorra/tetris-chgame/releases/tag/v1.1.6)
 contains the tested CHGame Rev0 builds:
 
 | File | Use |
@@ -135,13 +135,19 @@ about 38.575 / 35.361 / 38.575 seconds for A / B / C; B's wave part retains
 the original 24-frame longer loop. The native player interprets score data;
 it does not execute Game Boy code.
 
-The 31,250 Hz PWM output and enveloped cue mixer are retained from the ATM
-demo. Music percussion is mixed at half amplitude (about −6 dB) to balance
-the drum hits against the melody on CHGame. OFF keeps game cues, pause freezes
-the score, and the existing danger tempo setting runs at 125% without
-restarting. `Tetris/tools/make_music.py`
-regenerates the music data and source-derived validation facts from
-`Tetris/references/dmg/audio/`. URLs and source hashes are in `Tetris/tools/music.json`.
+The player outputs 31,250 PCM samples per second through PWM. Version 1.1.6
+retains the source instrument data and gives both pulse parts the same static
+1.5x output lift. Wave and percussion parts retain their previous balance;
+percussion remains at half amplitude. A Tetris-specific, mostly linear output
+stage leaves normal note decays intact, with limiting reserved for high peaks.
+Playback uses the full master level. Routine movement/rotation/landing cues
+no longer duck the music, and their cue levels are lower. Major events apply
+only a small music reduction. See [the fidelity and output checks](Tetris/docs/audio-update.md).
+
+OFF keeps game cues, pause freezes the score, and danger tempo runs at 125%
+without restarting. `tools/make_music.py` regenerates the original music data
+and source-derived validation facts from `references/dmg/audio/`. URLs and
+source hashes are in `tools/music.json`.
 The ATM demo itself is unchanged. Older settings migrate while retaining
 high scores and palette; the removed extension maps to original A-TYPE.
 
@@ -222,3 +228,10 @@ rights and are outside that software license. No Game Boy ROM or executable
 binary is bundled. This is an independent experimental project, with no
 claim of affiliation with Nintendo or the Tetris rights holders.
 See [LICENSE](LICENSE), [NOTICE](NOTICE) and [dependency licenses](Tetris/licenses/).
+
+
+## Audio update 1.1.6
+
+The original A/B/C score and instrument definitions are retained. Both pulse parts receive a static output lift, playback uses the full master level, and a wider linear output range preserves normal note decays. Routine movement/rotation/landing cues no longer duck the soundtrack and are quieter. Major event cues use only a small music reduction.
+
+[Audio validation notes](Tetris/docs/audio-update.md).

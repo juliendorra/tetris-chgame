@@ -70,7 +70,7 @@ int main(int argc, char **argv) {
         assert(chip::ticks() > tick);
         chip::setVolume(0);
         for (unsigned i = 0; i < 1000; ++i) assert(chip::sample() == 128);
-        chip::setVolume(3);
+        chip::setVolume(4);
     }
     // Danger speeds up the existing timeline; returning to normal retains it.
     chip::play(1);chip::setTempo(100);
@@ -88,11 +88,24 @@ int main(int argc, char **argv) {
     for(unsigned e=0;e<9;++e) {
         chip::effect(chip::Effect(e));
         for(unsigned n=0;n<chip::SAMPLE_RATE*2;++n) {
-            uint8_t pcm=nextSample();assert(pcm>8 && pcm<248);fputc(pcm,cues);
+            uint8_t pcm=nextSample();assert(pcm>=8 && pcm<=248);fputc(pcm,cues);
         }
     }
     fclose(cues);
     chip::effect(chip::Victory);chip::pause(true);
     for(unsigned n=0;n<1000;++n)assert(nextSample()==128);
+    // Identical score starts with and without continuous routine inputs.
+    // This catches soundtrack pumping that cannot be seen in note traces.
+    for (unsigned controls=0;controls<2;++controls) {
+        chip::play(0);chip::setVolume(4);clockFraction=0;
+        FILE *f=fopen((out+(controls?"/routine-cues.wav":"/routine-clean.wav")).c_str(),"wb");assert(f);
+        wavHeader(f,chip::SAMPLE_RATE*8);
+        for(unsigned n=0;n<chip::SAMPLE_RATE*8;++n) {
+            if(controls && n%(chip::SAMPLE_RATE/10)==0)
+                chip::effect((n/(chip::SAMPLE_RATE/10))&1?chip::Turn:chip::Move);
+            fputc(nextSample(),f);
+        }
+        fclose(f);
+    }
     printf("PASS: %u tracks rendered; pause/resume, mute volume and long delays checked\n", SONG_COUNT);
 }
