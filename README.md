@@ -238,13 +238,15 @@ The original A/B/C score and instrument definitions are retained. Both pulse par
 
 ## SD saves
 
-Version 1.1.7 uses [CHSave 0.1.0](https://github.com/juliendorra/chgame-sd-saves).
-Progress and settings are stored in `TETR.SAV`; existing saves are preserved.
-Prepare a mounted card before installing the new cartridge:
+Uses [CHSave 0.2](https://github.com/juliendorra/chgame-sd-saves).
+App ID: `com.juliendorra.tetris`. Firmware has no legacy save fallback.
 
 ```sh
+# New card:
 python3 tools/sd_saves.py prepare --card /path/to/card
+# Existing four-character journal; old file is kept:
+python3 tools/sd_saves.py migrate --card /path/to/card
 ```
 
-The source includes the pinned library and SD adapter. Build through `tetris.py`
-so the SD backend is selected. Keep save files when replacing cartridges.
+Convert existing saves before installing this build. Keep the hashed `.SAV`
+files when replacing cartridges. The complete ID is checked before writing.

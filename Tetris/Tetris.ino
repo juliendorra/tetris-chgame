@@ -1,5 +1,6 @@
 // Game Boy-style single-player Tetris for CHGame Rev0.
 #include <CHGame.h>
+#include <CHSave.h>
 #include "Game.h"
 #include "View.h"
 #include "Synth.h"
@@ -14,17 +15,12 @@ static bool savePending = false, finished = false;
 static view::Screen back = view::Title;
 static uint16_t screenAge = 0;
 static uint32_t seed = 0x54455452;
-constexpr uint32_t SAVE_MAGIC = save::magic("TETR");
+constexpr auto SAVE_ID = chsave::id("com.juliendorra.tetris");
+static chsave::Store gameSaves;
 static void loadSettings() {
-    if(!save::load(SAVE_MAGIC,2,saved)) {
-        if(save::load(SAVE_MAGIC,1,saved)) {
-            // V1: 0=A, 1=A-EXT, 2=OFF. Preserve scores and palette, map
-            // the removed extension to original A and retain OFF explicitly.
-            saved.music=saved.music==2?3:0;savePending=true;
-        } else {
-            saved=Saved{};
-            for(auto &group:saved.records)for(auto &r:group)memcpy(r.name,"------",7);
-        }
+    if(!gameSaves.load(SAVE_ID,2,saved)) {
+        saved=Saved{};
+        for(auto &group:saved.records)for(auto &r:group)memcpy(r.name,"------",7);
     }
     if(saved.music>3)saved.music=0;
     if(saved.palette>2)saved.palette=0;
@@ -188,11 +184,11 @@ static bool debugState(char command,const char *args) {
         dbg::print(board);return true;
     }
 #ifdef CHSIM
-    if(command=='Z' && args && args[0]>='0' && args[0]<='2') {
-        // Write a V1 settings record so migration can exercise the real save
+    if(command=='Z' && args && args[0]>='0' && args[0]<='3') {
+        // Write current settings so restart checks exercise the real save
         // pages while retaining the current names/scores/palette.
         gfx_wait();saved.music=args[0]-'0';
-        save::store(SAVE_MAGIC,1,saved);save::store(SAVE_MAGIC,1,saved);return true;
+        gameSaves.store(SAVE_ID,2,saved);gameSaves.store(SAVE_ID,2,saved);return true;
     }
     // Reproducible fixtures exercise real input, line animations and result UI.
     if(command=='Y') {
@@ -258,7 +254,7 @@ void loop() {
     seed^=micros()+scene.frame; seed=(seed<<7)|(seed>>25);
     input();
     gfx_wait();
-    if(savePending) { save::store(SAVE_MAGIC,2,saved);savePending=false; }
+    if(savePending) { gameSaves.store(SAVE_ID,2,saved);savePending=false; }
     dbg::markRenderStart();
     view::draw(game,scene,saved.records[scene.type]);
     dbg::markRenderEnd();

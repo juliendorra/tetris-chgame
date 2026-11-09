@@ -70,9 +70,9 @@ try:
     shot('victory');d.frames(65);tap('A');assert state()[0]==10
     shot('name');tap('UP');tap('START');assert state()[0]==8
     shot('records');records_image=d.shot();tap('B');assert state()[0]==3
-    for legacy,mapped in ((0,0),(1,0),(2,3)):
-        d.cmd(f'Z{legacy}');d.cmd('V');d.frames(2)
-        assert state()[0]==0 and state()[13]==mapped
+    for selected in range(4):
+        d.cmd(f'Z{selected}');d.cmd('V');d.frames(2)
+        assert state()[0]==0 and state()[13]==selected
         tap('START')
         if state()[14]!=1:tap('RIGHT')
         assert state()[14]==1
@@ -85,4 +85,4 @@ try:
     d.cmd('Y3');d.frames(2);assert state()[0]==7 and state()[1]==3;shot('game-over')
 finally:t.close()
 assert not t.bugs,t.bugs
-print('PASS: original A/B/C/OFF menu, palettes, controls, frozen pause/audio, stable I-piece landing patterns, Tetris, level-up, B-Type victory, initials, V1 settings migration with scores retained; no torn frames')
+print('PASS: original A/B/C/OFF menu, palettes, controls, frozen pause/audio, stable I-piece landing patterns, Tetris, level-up, B-Type victory, initials, namespaced settings persistence with scores retained; no torn frames')

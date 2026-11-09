@@ -184,7 +184,7 @@ scoring, level changes, B-Type heights and victory, top-out, score saturation,
 deterministic seeds and 500,000 frames of adversarial play under UBSan.
 Button-driven simulator checks cover menus, all three palettes, pause with a
 frozen musical timeline, preview toggle, a four-line clear, a level change,
-victory, initials, all four music choices and V1 settings migration with high
+victory, initials, all four music choices and namespaced settings persistence with high
 scores retained. A vertical I-piece landing beside other I-pieces must retain
 identical pixels; its orientation and end caps also survive line compaction.
 The LCD model reported no torn frames. Audio checks compare **66,816 voice
