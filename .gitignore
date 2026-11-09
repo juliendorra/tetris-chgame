@@ -5,3 +5,5 @@
 sketchbook/
 __pycache__/
 .DS_Store
+build/
+out/

@@ -59,5 +59,5 @@ if native_mac and needs_compiler:
 python = Path(os.environ.get("CHGAME_PYTHON", ROOT / ".venv/bin/python"))
 if not python.exists():
     python = Path(sys.executable)
-raise SystemExit(subprocess.call([str(python), str(ROOT / "CHGame/tools/chgame.py"),
+raise SystemExit(subprocess.call([str(python), str(ROOT / "tools/sd_saves.py"), "run",
                                 "--sketch", str(ROOT / "Tetris"), *args], env=env, cwd=ROOT))

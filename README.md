@@ -9,7 +9,7 @@ marathon and B-Type 25-line challenge follow the original handheld game.
 
 ## Download
 
-[Release 1.1.6](https://github.com/juliendorra/tetris-chgame/releases/tag/v1.1.6)
+[Release 1.1.7](https://github.com/juliendorra/tetris-chgame/releases/tag/v1.1.7)
 contains the tested CHGame Rev0 builds:
 
 | File | Use |
@@ -21,7 +21,7 @@ contains the tested CHGame Rev0 builds:
 
 The release includes [SHA-256 checksums](https://github.com/juliendorra/tetris-chgame/releases/latest/download/SHA256SUMS.txt)
 and [license notices](https://github.com/juliendorra/tetris-chgame/releases/latest/download/LICENSES.txt).
-No additional SD data files are needed. With the CHGame tools installed,
+Prepare the save journal before installing this version. With the CHGame tools installed,
 flash the cartridge using `chgame cart flash Tetris-rev0.chgame`.
 For an existing SD menu, install the `.chg` through your usual menu workflow;
 on a console using Dorra's category, its path is `GAMES/MYGAMESP/TETRIS.CHG`.
@@ -135,7 +135,7 @@ about 38.575 / 35.361 / 38.575 seconds for A / B / C; B's wave part retains
 the original 24-frame longer loop. The native player interprets score data;
 it does not execute Game Boy code.
 
-The player outputs 31,250 PCM samples per second through PWM. Version 1.1.6
+The player outputs 31,250 PCM samples per second through PWM. Version 1.1.7
 retains the source instrument data and gives both pulse parts the same static
 1.5x output lift. Wave and percussion parts retain their previous balance;
 percussion remains at half amplitude. A Tetris-specific, mostly linear output
@@ -230,8 +230,21 @@ claim of affiliation with Nintendo or the Tetris rights holders.
 See [LICENSE](LICENSE), [NOTICE](NOTICE) and [dependency licenses](Tetris/licenses/).
 
 
-## Audio update 1.1.6
+## Audio update 1.1.7
 
 The original A/B/C score and instrument definitions are retained. Both pulse parts receive a static output lift, playback uses the full master level, and a wider linear output range preserves normal note decays. Routine movement/rotation/landing cues no longer duck the soundtrack and are quieter. Major event cues use only a small music reduction.
 
 [Audio validation notes](Tetris/docs/audio-update.md).
+
+## SD saves
+
+Version 1.1.7 uses [CHSave 0.1.0](https://github.com/juliendorra/chgame-sd-saves).
+Progress and settings are stored in `TETR.SAV`; existing saves are preserved.
+Prepare a mounted card before installing the new cartridge:
+
+```sh
+python3 tools/sd_saves.py prepare --card /path/to/card
+```
+
+The source includes the pinned library and SD adapter. Build through `tetris.py`
+so the SD backend is selected. Keep save files when replacing cartridges.
