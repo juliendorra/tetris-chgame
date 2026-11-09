@@ -184,6 +184,16 @@ static bool debugState(char command,const char *args) {
         dbg::print(board);return true;
     }
 #ifdef CHSIM
+    if(command=='J') {
+        char line[224];
+        unsigned used=snprintf(line,sizeof line,"TETRISSAVE %u %u ",saved.music,saved.palette);
+        const auto *bytes=reinterpret_cast<const uint8_t *>(saved.records);
+        const char *hex="0123456789abcdef";
+        for(unsigned i=0;i<sizeof saved.records;++i) {
+            line[used++]=hex[bytes[i]>>4];line[used++]=hex[bytes[i]&15];
+        }
+        line[used++]='\n';line[used]=0;dbg::print(line);return true;
+    }
     if(command=='Z' && args && args[0]>='0' && args[0]<='3') {
         // Write current settings so restart checks exercise the real save
         // pages while retaining the current names/scores/palette.

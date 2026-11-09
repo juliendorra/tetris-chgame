@@ -69,15 +69,17 @@ try:
     d.cmd('Y2');d.frames(94);assert state()[0]==7 and state()[1]==4
     shot('victory');d.frames(65);tap('A');assert state()[0]==10
     shot('name');tap('UP');tap('START');assert state()[0]==8
-    shot('records');records_image=d.shot();tap('B');assert state()[0]==3
+    shot('records');stored=d.query('J','TETRISSAVE').split()[1:]
+    tap('B');assert state()[0]==3
     for selected in range(4):
         d.cmd(f'Z{selected}');d.cmd('V');d.frames(2)
         assert state()[0]==0 and state()[13]==selected
+        assert d.query('J','TETRISSAVE').split()[1:]==[str(selected),*stored[1:]]
         tap('START')
         if state()[14]!=1:tap('RIGHT')
         assert state()[14]==1
         tap('START');tap('SELECT');assert state()[0]==8
-        shot('saved-records');assert d.shot()==records_image
+        shot('saved-records')
     tap('B');tap('A');assert state()[0]==4
     tap('DOWN');shot('height');tap('UP')
     tap('RIGHT');tap('RIGHT');tap('A');assert state()[0]==5
