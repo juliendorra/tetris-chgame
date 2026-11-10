@@ -2,7 +2,7 @@
   "game": "Tetris",
   "sketch": "Tetris",
   "id": "com.juliendorra.tetris",
-  "library": "CHSave 0.3.0",
+  "library": "CHSave 0.4.0",
   "legacyId": "TETR",
-  "libraryCommit": "75ae77432da012c27f0d638d128576c600375b05"
+  "libraryCommit": "1cc5f1083d7cb799f3bd547ff26c18ef880c99a5"
 }
