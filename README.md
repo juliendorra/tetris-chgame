@@ -9,7 +9,7 @@ marathon and B-Type 25-line challenge follow the original handheld game.
 
 ## Download
 
-[Release 1.1.7](https://github.com/juliendorra/tetris-chgame/releases/tag/v1.1.7)
+[Release 1.1.8](https://github.com/juliendorra/tetris-chgame/releases/tag/v1.1.8)
 contains the tested CHGame Rev0 builds:
 
 | File | Use |
@@ -238,7 +238,7 @@ The original A/B/C score and instrument definitions are retained. Both pulse par
 
 ## SD saves
 
-Uses [CHSave 0.2](https://github.com/juliendorra/chgame-sd-saves).
+Uses [CHSave 0.3](https://github.com/juliendorra/chgame-sd-saves).
 App ID: `com.juliendorra.tetris`. Firmware has no legacy save fallback.
 
 ```sh
