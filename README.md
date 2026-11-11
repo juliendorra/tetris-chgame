@@ -9,7 +9,7 @@ marathon and B-Type 25-line challenge follow the original handheld game.
 
 ## Download
 
-[Release 1.1.9](https://github.com/juliendorra/tetris-chgame/releases/tag/v1.1.9)
+[Release 1.1.10](https://github.com/juliendorra/tetris-chgame/releases/tag/v1.1.10)
 contains the tested CHGame Rev0 builds:
 
 | File | Use |
@@ -238,14 +238,6 @@ The original A/B/C score and instrument definitions are retained. Both pulse par
 
 ## SD saves
 
-Uses [CHSave 0.4](https://github.com/juliendorra/chgame-sd-saves).
-App ID: `com.juliendorra.tetris`. Firmware has no legacy save fallback.
+Uses [CHSave 0.5](https://github.com/juliendorra/chgame-sd-saves). New saves are created automatically in `/SAVES/YKEL37VY.SAV`.
 
-```sh
-# One-time conversion of an existing four-character journal; old file is kept:
-python3 tools/sd_saves.py migrate --card /path/to/card
-```
-
-New saves are created automatically. Convert older four-character saves
-before upgrading. Keep the hashed `.SAV`
-files when replacing cartridges. The complete ID is checked before writing.
+Upgrading? Copy `YKEL37VY.SAV` from the card root into `SAVES/` before playing.
