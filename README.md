@@ -9,7 +9,7 @@ marathon and B-Type 25-line challenge follow the original handheld game.
 
 ## Download
 
-[Release 1.1.10](https://github.com/juliendorra/tetris-chgame/releases/tag/v1.1.10)
+[Release 1.1.11](https://github.com/juliendorra/tetris-chgame/releases/tag/v1.1.11)
 contains the tested CHGame Rev0 builds:
 
 | File | Use |

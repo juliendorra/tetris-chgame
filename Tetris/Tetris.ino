@@ -240,7 +240,7 @@ static bool debugState(char command,const char *args) {
 #endif
 
 void setup() {
-    chgame.boot(); dbg::begin("TETRIS 1.1.10");
+    chgame.boot(); dbg::begin("TETRIS 1.1.11");
 #if CHGAME_DEBUG
     dbg::hook=debugState;
 #endif
