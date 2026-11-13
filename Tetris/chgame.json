@@ -1,7 +1,7 @@
 {
   "id": "tetris",
   "title": "TETRIS",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "description": "DMG Tetris screen designs, persistent block patterns and original A/B/C music arrangements, with a filtered 16-tone LCD palette, A-Type and B-Type, and saved scores.",
   "genre": "Puzzle",
   "cartImage": "docs/cart.png",
