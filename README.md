@@ -238,6 +238,6 @@ The original A/B/C score and instrument definitions are retained. Both pulse par
 
 ## SD saves
 
-Uses [CHSave 0.5](https://github.com/juliendorra/chgame-sd-saves). New saves are created automatically in `/SAVES/YKEL37VY.SAV`.
+Uses [CHSave 0.6.1](https://github.com/juliendorra/chgame-sd-saves). New saves are created automatically in `/SAVES/YKEL37VY.SAV`.
 
 Upgrading? Copy `YKEL37VY.SAV` from the card root into `SAVES/` before playing.
